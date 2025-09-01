@@ -4,7 +4,7 @@ import { Link } from "react-router";
 const RestaurantCard = ({restaurant}) => {
   return (
     <Link to={`/restaurants/${restaurant._id}`} 
-    className="card bg-base-100 hover:shadow-lg transition-all duration-200 border-t-4 border-solid border-[#00FF9d]"
+    className="card bg-base-100 hover:shadow-lg transition-all duration-200 border-t-4 border-solid border-[#3290cb]"
 >   
     <div className="card-body">
         <h3 className="card-title text-base-content">{restaurant.name}</h3>
