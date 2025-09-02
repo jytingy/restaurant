@@ -1,5 +1,6 @@
 import { PenSquareIcon, Trash2Icon } from "lucide-react";
 import { Link } from "react-router";
+import formatDate from "../lib/utils";
 
 const RestaurantCard = ({restaurant}) => {
   return (
@@ -11,7 +12,7 @@ const RestaurantCard = ({restaurant}) => {
         <p className="text-base-content/70 line-clamp-3">{restaurant.review}</p>
         <div className="card-actions justify-between items-center mt-4">
             <span className="text-sm text-base-content/60">
-                {restaurant.createdAt}
+                {formatDate(new Date(restaurant.createdAt))}
             </span>
         </div>
 
