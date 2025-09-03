@@ -4,13 +4,27 @@ import Restaurant from '../models/restaurants.js';
 
 export const getRestaurants = async (req, res) => {
   try {
-    const restaurants = await Restaurant.find({});
+    const restaurants = await Restaurant.find().sort({createdAt: -1});
     res.status(200).json({success:true, data: restaurants});
   } catch(error){
     console.log("Error in fetching restaurants:", error.message);
     res.status(500).json({success: false, message: "Server Error"});
   }
 };
+
+export const getRestaurantById = async (req, res) => {
+  try {
+    const restaurant = await Restaurant.findById(req.params.id);
+    if (!restaurant) {
+      return res.status(404).json({ success: false, message: "Restaurant not found." });
+    }
+    res.status(200).json({ success: true, data: restaurant });
+  } catch (error) { 
+    console.error("Error in getRestaurantById controller", error);
+    res.status(500).json({ success: false, message: "Server error" });
+  }
+};
+
 
 export const createRestaurant = async (req, res) => {
   const restaurant = req.body; // user will send this data

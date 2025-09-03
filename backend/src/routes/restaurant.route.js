@@ -1,12 +1,13 @@
 import express from 'express';
 
-import { createRestaurant, deleteRestaurant, getRestaurants, updateRestaurant } from '../controllers/restaurant.controller.js';
+import { createRestaurant, deleteRestaurant, getRestaurants, getRestaurantById, updateRestaurant } from '../controllers/restaurant.controller.js';
 // contains all endpoints for restaurant
 
 const router = express.Router();
 
 // get function
 router.get("/", getRestaurants);
+router.get("/:id", getRestaurantById);
 
 // our post function
 router.post("/", createRestaurant);
